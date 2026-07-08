@@ -1,0 +1,107 @@
+[
+  {
+    "name": "attendance_tool",
+    "intent": "attendance",
+    "description": "Fetch attendance records, attendance percentage, and missed classes.",
+    "keywords": ["attendance", "absent", "present", "missed", "classes"],
+    "examples": [
+      "Show my attendance.",
+      "What is my attendance percentage?",
+      "How many classes did I miss this month?"
+    ]
+  },
+  {
+    "name": "marks_tool",
+    "intent": "marks",
+    "description": "Fetch subject marks, average score, highest score, and weak or strong subjects.",
+    "keywords": ["marks", "score", "grade", "average", "highest", "lowest", "weak", "strong", "subject"],
+    "examples": [
+      "Show my Mathematics marks.",
+      "Which subject has the highest marks?",
+      "What is my average score?"
+    ]
+  },
+  {
+    "name": "fee_status_tool",
+    "intent": "fees",
+    "description": "Fetch fee status, pending balance, unpaid fees, and payment history.",
+    "keywords": ["fee", "fees", "paid", "payment", "pending", "unpaid", "balance"],
+    "examples": [
+      "Have I paid this month's fees?",
+      "How much fee is pending?",
+      "Show payment history."
+    ]
+  },
+  {
+    "name": "homework_tool",
+    "intent": "homework",
+    "description": "Fetch homework and assignments by due date, status, or subject.",
+    "keywords": ["homework", "assignment", "assignments", "due", "pending", "submit"],
+    "examples": [
+      "What homework is pending?",
+      "Show today's homework.",
+      "What assignments are due tomorrow?"
+    ]
+  },
+  {
+    "name": "timetable_tool",
+    "intent": "timetable",
+    "description": "Fetch timetable entries, first class, and subject class timing.",
+    "keywords": ["timetable", "schedule", "class", "period", "first", "when"],
+    "examples": [
+      "Show tomorrow's timetable.",
+      "What is my first class today?",
+      "When is my Mathematics class?"
+    ]
+  },
+  {
+    "name": "academic_summary_tool",
+    "intent": "academic_summary",
+    "description": "Create an academic performance summary from marks, attendance, homework, and fees.",
+    "keywords": ["summarize", "summary", "performance", "semester", "progress", "report"],
+    "examples": [
+      "Summarize my academic performance this semester.",
+      "Generate my progress report."
+    ]
+  },
+  {
+    "name": "recommendation_tool",
+    "intent": "recommendations",
+    "description": "Analyze ERP data and suggest academic improvement actions.",
+    "keywords": ["improve", "recommend", "recommendation", "suggest", "focus", "prepare"],
+    "examples": [
+      "How can I improve my grades?",
+      "Suggest subjects I should focus on."
+    ]
+  },
+  {
+    "name": "attendance_insight_tool",
+    "intent": "attendance_insights",
+    "description": "Calculate whether a student can meet or maintain a target attendance percentage.",
+    "keywords": ["attendance", "maintain", "target", "percentage", "insight"],
+    "examples": [
+      "Can I maintain 90% attendance this semester?",
+      "How many classes do I need to attend to reach my attendance target?"
+    ]
+  },
+  {
+    "name": "exam_planner_tool",
+    "intent": "exam_planner",
+    "description": "Create a study plan from marks and the number of days remaining before exams.",
+    "keywords": ["exam", "exams", "study", "planner", "plan", "days"],
+    "examples": [
+      "My exams start in 15 days. Create a study plan.",
+      "Create an exam preparation planner."
+    ]
+  },
+  {
+    "name": "parent_report_tool",
+    "intent": "parent_progress_report",
+    "description": "Generate a parent-facing progress report with attendance, marks, homework, fees, and suggestions.",
+    "keywords": ["parent", "guardian", "progress", "report"],
+    "examples": [
+      "Generate a parent progress report.",
+      "Create a guardian report for this student."
+    ]
+  }
+]

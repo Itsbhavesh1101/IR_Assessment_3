@@ -1,0 +1,20 @@
+[
+  {
+    "user_id": "U_TEACHER_10A",
+    "name": "Ms. Nandita Kapoor",
+    "role": "teacher",
+    "password": "teacher10a",
+    "api_token": "token-teacher-10a",
+    "student_ids": ["S001"],
+    "active": true
+  },
+  {
+    "user_id": "U_STUDENT_001",
+    "name": "Ananya Sharma",
+    "role": "student",
+    "password": "student001",
+    "api_token": "token-student-001",
+    "student_ids": ["S001"],
+    "active": true
+  }
+]

@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.pytest_cache_runtime/
+.ruff_cache/
+.coverage
+htmlcov/
+.test_tmp/
+.venv/
+.env
+logs/*.log
+school_erp.db
+tests/
+

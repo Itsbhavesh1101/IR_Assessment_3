@@ -1,0 +1,110 @@
+[
+  {
+    "class_name": "10",
+    "section": "A",
+    "subject": "Hindi",
+    "title": "Prepare five-minute poem recitation",
+    "assigned_date": "2026-07-06",
+    "due_date": "2026-07-07",
+    "status": "pending"
+  },
+  {
+    "class_name": "10",
+    "section": "A",
+    "subject": "Mathematics",
+    "title": "Complete quadratic equations practice set",
+    "assigned_date": "2026-07-06",
+    "due_date": "2026-07-08",
+    "status": "pending"
+  },
+  {
+    "class_name": "10",
+    "section": "A",
+    "subject": "English",
+    "title": "Submit argumentative essay final draft",
+    "assigned_date": "2026-07-03",
+    "due_date": "2026-07-08",
+    "status": "completed"
+  },
+  {
+    "class_name": "10",
+    "section": "A",
+    "subject": "Science",
+    "title": "Write lab observations on chemical reactions",
+    "assigned_date": "2026-07-07",
+    "due_date": "2026-07-09",
+    "status": "pending"
+  },
+  {
+    "class_name": "10",
+    "section": "A",
+    "subject": "Social Studies",
+    "title": "Create a mind map on Indian federalism",
+    "assigned_date": "2026-07-07",
+    "due_date": "2026-07-10",
+    "status": "pending"
+  },
+  {
+    "class_name": "10",
+    "section": "A",
+    "subject": "Computer Science",
+    "title": "Build a simple HTML student profile form",
+    "assigned_date": "2026-07-08",
+    "due_date": "2026-07-11",
+    "status": "pending"
+  },
+  {
+    "class_name": "10",
+    "section": "A",
+    "subject": "Mathematics",
+    "title": "Revise arithmetic progression word problems",
+    "assigned_date": "2026-07-09",
+    "due_date": "2026-07-13",
+    "status": "pending"
+  },
+  {
+    "class_name": "10",
+    "section": "A",
+    "subject": "Science",
+    "title": "Draw labelled diagram of human respiratory system",
+    "assigned_date": "2026-07-09",
+    "due_date": "2026-07-14",
+    "status": "pending"
+  },
+  {
+    "class_name": "10",
+    "section": "A",
+    "subject": "English",
+    "title": "Read chapter 4 and write character notes",
+    "assigned_date": "2026-07-10",
+    "due_date": "2026-07-15",
+    "status": "pending"
+  },
+  {
+    "class_name": "10",
+    "section": "A",
+    "subject": "Computer Science",
+    "title": "Submit CSS layout worksheet",
+    "assigned_date": "2026-07-01",
+    "due_date": "2026-07-05",
+    "status": "completed"
+  },
+  {
+    "class_name": "10",
+    "section": "A",
+    "subject": "Social Studies",
+    "title": "Write short answers on democratic rights",
+    "assigned_date": "2026-06-28",
+    "due_date": "2026-07-02",
+    "status": "completed"
+  },
+  {
+    "class_name": "10",
+    "section": "A",
+    "subject": "Hindi",
+    "title": "Revise grammar exercises from chapter 3",
+    "assigned_date": "2026-07-10",
+    "due_date": "2026-07-16",
+    "status": "pending"
+  }
+]

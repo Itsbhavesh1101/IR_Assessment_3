@@ -1,0 +1,294 @@
+{
+  "info": {
+    "_postman_id": "5a5228c4-81f3-4de0-a7a8-0db4717d8d54",
+    "name": "AI School ERP Assistant",
+    "description": "Evaluator-ready requests for the FastAPI School ERP assistant. Start the API locally, then run the collection from top to bottom to verify metadata, chat planning, memory, bonus flows, history, logs, and error handling.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:8000"
+    },
+    {
+      "key": "userId",
+      "value": "U_STUDENT_001"
+    },
+    {
+      "key": "studentId",
+      "value": "S001"
+    },
+    {
+      "key": "conversationId",
+      "value": ""
+    },
+    {
+      "key": "authToken",
+      "value": "token-student-001"
+    }
+  ],
+  "item": [
+    {
+      "name": "System and Metadata",
+      "item": [
+        {
+          "name": "Health",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/health"
+          }
+        },
+        {
+          "name": "Readiness Checklist",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/readiness"
+          }
+        },
+        {
+          "name": "Users",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users"
+          }
+        },
+        {
+          "name": "Students for User",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/students?user_id={{userId}}"
+          }
+        },
+        {
+          "name": "Tool Manifest",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/tools"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Agent Chat",
+      "item": [
+        {
+          "name": "Multi-step ERP Chat",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const payload = pm.response.json();",
+                  "pm.collectionVariables.set('conversationId', payload.conversation_id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"{{userId}}\",\n  \"student_id\": \"{{studentId}}\",\n  \"message\": \"Show my attendance, Mathematics marks, and pending fees.\",\n  \"return_plan\": true\n}"
+            },
+            "url": "{{baseUrl}}/chat"
+          }
+        },
+        {
+          "name": "Token-authenticated Chat",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-ERP-Auth-Token",
+                "value": "{{authToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"student_id\": \"{{studentId}}\",\n  \"message\": \"Show my marks.\",\n  \"return_plan\": true\n}"
+            },
+            "url": "{{baseUrl}}/chat"
+          }
+        },
+        {
+          "name": "Conversation Memory Follow-up",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"{{userId}}\",\n  \"student_id\": \"{{studentId}}\",\n  \"conversation_id\": \"{{conversationId}}\",\n  \"message\": \"Which one is highest?\",\n  \"return_plan\": true\n}"
+            },
+            "url": "{{baseUrl}}/chat"
+          }
+        },
+        {
+          "name": "Academic Performance Summary",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"{{userId}}\",\n  \"student_id\": \"{{studentId}}\",\n  \"message\": \"Summarize my academic performance this semester.\",\n  \"return_plan\": true\n}"
+            },
+            "url": "{{baseUrl}}/chat"
+          }
+        },
+        {
+          "name": "Attendance Target Insight",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"{{userId}}\",\n  \"student_id\": \"{{studentId}}\",\n  \"message\": \"Can I maintain 90% attendance this semester?\",\n  \"return_plan\": true\n}"
+            },
+            "url": "{{baseUrl}}/chat"
+          }
+        },
+        {
+          "name": "Exam Preparation Planner",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"{{userId}}\",\n  \"student_id\": \"{{studentId}}\",\n  \"message\": \"My exams start in 15 days. Create a study plan.\",\n  \"return_plan\": true\n}"
+            },
+            "url": "{{baseUrl}}/chat"
+          }
+        },
+        {
+          "name": "Parent Progress Report",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"{{userId}}\",\n  \"student_id\": \"{{studentId}}\",\n  \"message\": \"Generate a parent progress report.\",\n  \"return_plan\": true\n}"
+            },
+            "url": "{{baseUrl}}/chat"
+          }
+        }
+      ]
+    },
+    {
+      "name": "History and Logs",
+      "item": [
+        {
+          "name": "Chat History",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/chat/history?user_id={{userId}}&student_id={{studentId}}&limit=20"
+          }
+        },
+        {
+          "name": "Conversation Sessions",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/chat/conversations?user_id={{userId}}&student_id={{studentId}}&limit=20"
+          }
+        },
+        {
+          "name": "Execution Logs",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/logs?user_id={{userId}}&student_id={{studentId}}&limit=10"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Error Handling",
+      "item": [
+        {
+          "name": "Empty Request",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"{{userId}}\",\n  \"student_id\": \"{{studentId}}\",\n  \"message\": \"   \"\n}"
+            },
+            "url": "{{baseUrl}}/chat"
+          }
+        },
+        {
+          "name": "Invalid Student",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"student_id\": \"missing-student\",\n  \"message\": \"Show my attendance.\"\n}"
+            },
+            "url": "{{baseUrl}}/chat"
+          }
+        },
+        {
+          "name": "Invalid Query",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"{{userId}}\",\n  \"student_id\": \"{{studentId}}\",\n  \"message\": \"Tell me a joke about school.\"\n}"
+            },
+            "url": "{{baseUrl}}/chat"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+@baseUrl = http://127.0.0.1:8000
+@userId = U_STUDENT_001
+@studentId = S001
+@authToken = token-student-001
+
+### Health
+GET {{baseUrl}}/health
+
+### Readiness checklist
+GET {{baseUrl}}/readiness
+
+### Users
+GET {{baseUrl}}/users
+
+### Students for user
+GET {{baseUrl}}/students?user_id={{userId}}
+
+### Tool manifest
+GET {{baseUrl}}/tools
+
+### Multi-step chat
+# @name multiStep
+POST {{baseUrl}}/chat
+Content-Type: application/json
+
+{
+  "user_id": "{{userId}}",
+  "student_id": "{{studentId}}",
+  "message": "Show my attendance, Mathematics marks, and pending fees.",
+  "return_plan": true
+}
+
+### Token-authenticated chat
+POST {{baseUrl}}/chat
+Content-Type: application/json
+X-ERP-Auth-Token: {{authToken}}
+
+{
+  "student_id": "{{studentId}}",
+  "message": "Show my marks.",
+  "return_plan": true
+}
+
+### Follow-up with conversation memory
+POST {{baseUrl}}/chat
+Content-Type: application/json
+
+{
+  "user_id": "{{userId}}",
+  "student_id": "{{studentId}}",
+  "conversation_id": "{{multiStep.response.body.$.conversation_id}}",
+  "message": "Which one is highest?",
+  "return_plan": true
+}
+
+### Academic summary
+POST {{baseUrl}}/chat
+Content-Type: application/json
+
+{
+  "user_id": "{{userId}}",
+  "student_id": "{{studentId}}",
+  "message": "Summarize my academic performance this semester.",
+  "return_plan": true
+}
+
+### Attendance insight
+POST {{baseUrl}}/chat
+Content-Type: application/json
+
+{
+  "user_id": "{{userId}}",
+  "student_id": "{{studentId}}",
+  "message": "Can I maintain 90% attendance this semester?",
+  "return_plan": true
+}
+
+### Exam preparation planner
+POST {{baseUrl}}/chat
+Content-Type: application/json
+
+{
+  "user_id": "{{userId}}",
+  "student_id": "{{studentId}}",
+  "message": "My exams start in 15 days. Create a study plan.",
+  "return_plan": true
+}
+
+### Parent progress report
+POST {{baseUrl}}/chat
+Content-Type: application/json
+
+{
+  "user_id": "{{userId}}",
+  "student_id": "{{studentId}}",
+  "message": "Generate a parent progress report.",
+  "return_plan": true
+}
+
+### Chat history
+GET {{baseUrl}}/chat/history?user_id={{userId}}&student_id={{studentId}}&limit=20
+
+### Conversation sessions
+GET {{baseUrl}}/chat/conversations?user_id={{userId}}&student_id={{studentId}}&limit=20
+
+### Execution logs
+GET {{baseUrl}}/logs?user_id={{userId}}&student_id={{studentId}}&limit=10

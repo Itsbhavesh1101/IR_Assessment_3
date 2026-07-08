@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI School ERP Assistant</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="login-view" id="loginView" aria-label="School ERP login">
+        <div class="login-visual" aria-hidden="true">
+          <div class="brand-lockup">
+            <div class="brand-mark">AI</div>
+            <div>
+              <p>School ERP</p>
+              <h1>AI Assistant</h1>
+            </div>
+          </div>
+          <figure class="login-art-card">
+            <img src="/static/assets/login-campus.svg" alt="" />
+            <div class="login-art-badge badge-top">
+              <span>Live ERP</span>
+              <strong>Planner ready</strong>
+            </div>
+            <div class="login-art-badge badge-bottom">
+              <span>Context</span>
+              <strong>Memory on</strong>
+            </div>
+          </figure>
+        </div>
+
+        <section class="login-panel">
+          <div class="status-pill" id="healthStatus">Checking</div>
+          <header>
+            <p class="eyebrow">Secure workspace</p>
+            <h2>Sign in</h2>
+          </header>
+          <div class="role-switch" aria-label="Login type">
+            <button type="button" class="active" data-login-type="teacher">Teacher</button>
+            <button type="button" data-login-type="parent_student">Parent / Student</button>
+          </div>
+          <form class="login-form" id="loginForm">
+            <label>
+              User ID
+              <input id="loginUserId" type="text" autocomplete="username" required />
+            </label>
+            <label>
+              Password
+              <input id="loginPassword" type="password" autocomplete="current-password" required />
+            </label>
+            <button id="loginButton" type="submit">Login</button>
+          </form>
+          <p class="form-error" id="loginError" role="alert"></p>
+        </section>
+      </section>
+
+      <section class="dashboard-view" id="dashboardView" hidden>
+        <aside class="nav-rail" aria-label="Dashboard navigation">
+          <div class="profile-block">
+            <div class="avatar" id="profileAvatar">AI</div>
+            <strong id="profileName">User</strong>
+            <span id="profileRole">Role</span>
+          </div>
+          <nav class="nav-menu">
+            <button type="button" class="active" data-window="homeWindow">Home</button>
+            <button type="button" data-window="chatWindow">Chat</button>
+          </nav>
+          <button id="logoutButton" type="button" class="logout-button">Logout</button>
+        </aside>
+
+        <section class="dashboard-main">
+          <header class="dashboard-header">
+            <div>
+              <p class="eyebrow" id="workspaceLabel">Dashboard</p>
+              <h1 id="dashboardTitle">School ERP Assistant</h1>
+            </div>
+            <div class="header-actions">
+              <input id="authToken" type="hidden" autocomplete="off" />
+              <input id="userId" type="hidden" autocomplete="off" />
+              <div class="theme-switcher" aria-label="Theme colors">
+                <button type="button" class="theme-dot active theme-ocean" data-theme="ocean" title="Ocean theme"></button>
+                <button type="button" class="theme-dot theme-forest" data-theme="forest" title="Forest theme"></button>
+                <button type="button" class="theme-dot theme-sunset" data-theme="sunset" title="Sunset theme"></button>
+                <button type="button" class="theme-dot theme-grape" data-theme="grape" title="Grape theme"></button>
+              </div>
+              <label>
+                Student
+                <select id="studentId"></select>
+              </label>
+              <button id="downloadChatButton" type="button" class="secondary">Download Chat</button>
+              <button id="newChatButton" type="button">New Chat</button>
+            </div>
+          </header>
+
+          <section class="view-window" id="homeWindow" aria-label="Home dashboard">
+            <section class="metric-grid" aria-label="Dashboard summary">
+              <article class="metric-card metric-blue">
+                <p>Attendance</p>
+                <strong id="metricAttendance">--</strong>
+                <span id="metricAttendanceDetail">--</span>
+              </article>
+              <article class="metric-card metric-white">
+                <p>Average Marks</p>
+                <strong id="metricMarks">--</strong>
+                <span id="metricMarksDetail">--</span>
+              </article>
+              <article class="metric-card metric-coral">
+                <p>Pending Fees</p>
+                <strong id="metricFees">--</strong>
+                <span id="metricFeesDetail">--</span>
+              </article>
+              <article class="metric-card metric-green">
+                <p>Homework</p>
+                <strong id="metricHomework">--</strong>
+                <span id="metricHomeworkDetail">--</span>
+              </article>
+            </section>
+
+            <section class="visual-grid">
+              <article class="chart-panel attendance-panel">
+                <div class="panel-heading">
+                  <h2>Attendance</h2>
+                  <span id="metricClasses">-- classes today</span>
+                </div>
+                <div class="attendance-ring" id="attendanceRing">
+                  <span id="attendanceRingValue">--</span>
+                </div>
+              </article>
+
+              <article class="chart-panel">
+                <div class="panel-heading">
+                  <h2>Subject Progress</h2>
+                  <span id="marksCaption">Current records</span>
+                </div>
+                <ul class="bar-list" id="marksBars"></ul>
+              </article>
+
+              <article class="chart-panel">
+                <div class="panel-heading">
+                  <h2>Today</h2>
+                </div>
+                <ul class="compact-list" id="todayList"></ul>
+              </article>
+            </section>
+
+            <section class="insight-grid" aria-label="Student insights">
+              <article class="insight-panel">
+                <div class="panel-heading">
+                  <h2>Focus Areas</h2>
+                  <span id="focusCaption">From current records</span>
+                </div>
+                <ul class="chip-list" id="focusList"></ul>
+              </article>
+              <article class="insight-panel">
+                <div class="panel-heading">
+                  <h2>Fee Trend</h2>
+                  <span id="feeCaption">Billed vs paid</span>
+                </div>
+                <ul class="fee-list" id="feeBars"></ul>
+              </article>
+            </section>
+          </section>
+
+          <section class="view-window" id="chatWindow" aria-label="Chat workspace" hidden>
+            <section class="quick-prompts" aria-label="Example prompts">
+              <button type="button" data-prompt="Show my attendance for this month.">Attendance</button>
+              <button type="button" data-prompt="Show my Mathematics marks.">Marks</button>
+              <button type="button" data-prompt="Show my pending fees.">Fees</button>
+              <button type="button" data-prompt="What homework is due tomorrow?">Homework</button>
+              <button type="button" data-prompt="Show tomorrow's timetable.">Timetable</button>
+              <button type="button" data-prompt="Summarize my academic performance this semester.">Summary</button>
+              <button type="button" data-prompt="Can I maintain 90% attendance this semester?">Insight</button>
+              <button type="button" data-prompt="My exams start in 15 days. Create a study plan.">Exam Plan</button>
+              <button type="button" data-prompt="Generate a parent progress report.">Parent Report</button>
+            </section>
+
+            <section class="work-grid">
+              <section class="chat-card" aria-label="School ERP chat workspace">
+                <div class="chat-panel" id="chatPanel" aria-live="polite"></div>
+                <form class="composer" id="chatForm">
+                  <input
+                    id="messageInput"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="Ask about attendance, marks, fees, homework, timetable..."
+                  />
+                  <button type="submit">Send</button>
+                </form>
+              </section>
+
+              <aside class="side-panel history-panel" aria-label="Chat history">
+                <section>
+                  <div class="section-heading">
+                    <h2>Chat History</h2>
+                    <button id="loadHistoryButton" type="button" class="secondary">Refresh</button>
+                  </div>
+                  <ul id="historyList" class="history-list"></ul>
+                </section>
+              </aside>
+            </section>
+          </section>
+        </section>
+      </section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

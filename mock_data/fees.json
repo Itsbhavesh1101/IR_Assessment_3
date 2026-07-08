@@ -1,0 +1,9 @@
+[
+  {"student_id": "S001", "month": "2026-01", "amount": 5200, "paid_amount": 5200, "status": "paid", "paid_on": "2026-01-05"},
+  {"student_id": "S001", "month": "2026-02", "amount": 5200, "paid_amount": 5200, "status": "paid", "paid_on": "2026-02-05"},
+  {"student_id": "S001", "month": "2026-03", "amount": 5200, "paid_amount": 5200, "status": "paid", "paid_on": "2026-03-06"},
+  {"student_id": "S001", "month": "2026-04", "amount": 5200, "paid_amount": 5200, "status": "paid", "paid_on": "2026-04-05"},
+  {"student_id": "S001", "month": "2026-05", "amount": 5200, "paid_amount": 5200, "status": "paid", "paid_on": "2026-05-06"},
+  {"student_id": "S001", "month": "2026-06", "amount": 5200, "paid_amount": 5200, "status": "paid", "paid_on": "2026-06-05"},
+  {"student_id": "S001", "month": "2026-07", "amount": 5200, "paid_amount": 0, "status": "unpaid", "paid_on": null}
+]

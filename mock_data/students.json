@@ -1,0 +1,11 @@
+[
+  {
+    "student_id": "S001",
+    "name": "Ananya Sharma",
+    "role": "student",
+    "class_name": "10",
+    "section": "A",
+    "guardian_name": "Meera Sharma",
+    "active": true
+  }
+]
