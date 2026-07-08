@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: ir-assessment-3
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: DATABASE_URL
+        value: sqlite:////data/school_erp.db
+      - key: LOG_FILE_PATH
+        value: /data/logs/assistant.log
+      - key: AUTO_SEED
+        value: true
+      - key: APP_TIMEZONE
+        value: Asia/Calcutta
+      - key: LLM_PROVIDER
+        value: gemini
+      - key: LLM_TEMPERATURE
+        value: 0
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_BASE_URL
+        value: https://generativelanguage.googleapis.com/v1beta
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash
+      - key: GEMINI_TIMEOUT_SECONDS
+        value: 10

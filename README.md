@@ -187,6 +187,39 @@ docker compose up --build
 
 The SQLite database and logs are stored in the `school_ai_data` Docker volume.
 
+## Render Deployment with Gemini
+
+This repository includes `render.yaml` for Render Blueprint deployment. It deploys the Dockerized FastAPI app and configures Gemini as the LLM provider.
+
+When Render asks for secret values, enter your Gemini API key for:
+
+```text
+GEMINI_API_KEY=your-private-gemini-key
+```
+
+The deployment uses these non-secret values:
+
+```text
+LLM_PROVIDER=gemini
+GEMINI_MODEL=gemini-2.5-flash
+GEMINI_BASE_URL=https://generativelanguage.googleapis.com/v1beta
+GEMINI_TIMEOUT_SECONDS=10
+LLM_TEMPERATURE=0
+AUTO_SEED=true
+DATABASE_URL=sqlite:////data/school_erp.db
+LOG_FILE_PATH=/data/logs/assistant.log
+APP_TIMEZONE=Asia/Calcutta
+PORT=8000
+```
+
+After deployment, verify:
+
+```text
+https://your-render-service.onrender.com/
+https://your-render-service.onrender.com/health
+https://your-render-service.onrender.com/docs
+```
+
 ## Demo Script
 
 With the API running, execute:
